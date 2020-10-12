@@ -3,8 +3,22 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t tobilg/gitlab-ci-runner-marathon .
+stages:
+  - build
+  - publish
 
-script:
-  - echo "Done!"
+jobs:
+  include:
+
+    # Job: Build
+    - stage: build
+      script:
+        - docker build -t kopax/gitlab-ci-runner-marathon .
+    # Job: Publish
+    - stage: publish
+      if: tag IS present
+      script:
+        - echo "Building and pushing tags ${TRAVIS_TAG}"
+        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+        - docker build -t kopax/gitlab-ci-runner-marathon:${TRAVIS_TAG} .
+        - docker push kopax/gitlab-ci-runner-marathon:${TRAVIS_TAG}
