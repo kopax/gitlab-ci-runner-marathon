@@ -1,9 +1,11 @@
+This repository was inspired from https://github.com/tobilg/gitlab-ci-runner-marathon which is not up to date.
+
 # gitlab-ci-runner-marathon
 
-[![Build Status](https://travis-ci.org/tobilg/gitlab-ci-runner-marathon.svg?branch=master)](https://travis-ci.org/tobilg/gitlab-ci-runner-marathon)
-[![Docker Stars](https://img.shields.io/docker/stars/tobilg/gitlab-ci-runner-marathon.svg)](https://hub.docker.com/r/tobilg/gitlab-ci-runner-marathon/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tobilg/gitlab-ci-runner-marathon.svg)](https://hub.docker.com/r/tobilg/gitlab-ci-runner-marathon/)
-[![](https://images.microbadger.com/badges/image/tobilg/gitlab-ci-runner-marathon.svg)](http://microbadger.com/images/tobilg/gitlab-ci-runner-marathon "Get your own image badge on microbadger.com") 
+[![Build Status](https://travis-ci.org/kopax/gitlab-ci-runner-marathon.svg?branch=master)](https://travis-ci.org/kopax/gitlab-ci-runner-marathon)
+[![Docker Stars](https://img.shields.io/docker/stars/kopax/gitlab-ci-runner-marathon.svg)](https://hub.docker.com/r/kopax/gitlab-ci-runner-marathon/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/kopax/gitlab-ci-runner-marathon.svg)](https://hub.docker.com/r/kopax/gitlab-ci-runner-marathon/)
+[![](https://images.microbadger.com/badges/image/kopax/gitlab-ci-runner-marathon.svg)](http://microbadger.com/images/kopax/gitlab-ci-runner-marathon "Get your own image badge on microbadger.com") 
 
 A customized Docker image for running scalable GitLab CI runners on DC/OS via Marathon.
 
@@ -40,7 +42,7 @@ An example for a shell runner. This enables the build of Docker images.
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "tobilg/gitlab-ci-runner-marathon:v12.10.3",
+      "image": "kopax/gitlab-ci-runner-marathon:v12.10.3",
       "network": "HOST",
       "forcePullImage": true,
       "privileged": true
@@ -82,7 +84,7 @@ Here's an example for a Docker runner, which enables builds *inside* Docker cont
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "tobilg/gitlab-ci-runner-marathon:v12.10.3",
+      "image": "kopax/gitlab-ci-runner-marathon:v12.10.3",
       "network": "HOST",
       "forcePullImage": true,
       "privileged": true
@@ -132,7 +134,7 @@ build-job:
   tags:
     - build-as-docker
   script:
-    - docker build -t tobilg/test .
+    - docker build -t kopax/test .
 ```
 
 This assumes your project has a `Dockerfile`, for example
