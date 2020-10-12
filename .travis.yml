@@ -19,7 +19,7 @@ jobs:
       on:
         tags: true
       script:
-        - "[[ -z $TRAVIS_TAG ]] || exit 1"
+        - "[[ -z \"$TRAVIS_TAG\" ]] && echo 'Exiting because not a tag job' && exit 0"
         - echo "Building and pushing tags ${TRAVIS_TAG}"
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - docker build -t kopax/gitlab-ci-runner-marathon:${TRAVIS_TAG} .
