@@ -16,7 +16,8 @@ jobs:
         - docker build -t kopax/gitlab-ci-runner-marathon .
     # Job: Publish
     - stage: publish
-      if: tag IS present
+      on:
+        tags: true
       script:
         - echo "Building and pushing tags ${TRAVIS_TAG}"
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin

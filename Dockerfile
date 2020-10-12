@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 MAINTAINER Dimitri Kopriwa <dimitri.kopriwa@kopaxgroup.com>
 
 # Download dumb-init
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64 /usr/bin/dumb-init
+ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 /usr/bin/dumb-init
 
 ENV DIND_COMMIT 3b5fac462d21ca164b3778647420016315289034
 

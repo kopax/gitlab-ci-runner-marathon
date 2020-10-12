@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 set -eu
 
@@ -137,4 +137,4 @@ trap _getTerminationSignal TERM
 gitlab-runner register
 
 # Start the runner
-gitlab-runner run --working-directory=${RUNNER_WORK_DIR} --metrics-server $HOST:$PORT0
+gitlab-runner run --working-directory=${RUNNER_WORK_DIR} --listen-address $HOST:$PORT0
