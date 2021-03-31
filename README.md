@@ -42,7 +42,7 @@ An example for a shell runner. This enables the build of Docker images.
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "kopax/gitlab-ci-runner-marathon:v13.4.1",
+      "image": "kopax/gitlab-ci-runner-marathon:v13.5.7",
       "network": "HOST",
       "forcePullImage": true,
       "privileged": true
@@ -84,7 +84,7 @@ Here's an example for a Docker runner, which enables builds *inside* Docker cont
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "kopax/gitlab-ci-runner-marathon:v13.4.1",
+      "image": "kopax/gitlab-ci-runner-marathon:v13.5.7",
       "network": "HOST",
       "forcePullImage": true,
       "privileged": true
